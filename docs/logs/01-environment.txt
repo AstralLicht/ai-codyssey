@@ -1,0 +1,49 @@
++ pwd
+/home/juhyun/projects/ai-codyssey
++ git remote -v
+origin	https://github.com/AstralLicht/ai-codyssey.git (fetch)
+origin	https://github.com/AstralLicht/ai-codyssey.git (push)
++ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	docs/
+
+nothing added to commit but untracked files present (use "git add" to track)
++ ls --color=auto -la
+total 32
+drwxr-xr-x 6 juhyun juhyun 4096 Nov  4 21:57 .
+drwxr-xr-x 3 juhyun juhyun 4096 Nov  4 21:27 ..
+drwxr-xr-x 8 juhyun juhyun 4096 Nov  4 21:57 .git
+drwxr-xr-x 3 juhyun juhyun 4096 Nov  4 21:33 .ruff_cache
+drwxr-xr-x 5 juhyun juhyun 4096 Nov  4 21:32 .venv
+-rw-r--r-- 1 juhyun juhyun    1 Nov  4 21:27 README.md
+-rw-r--r-- 1 juhyun juhyun 2000 Nov  4 21:33 attend.py
+drwxr-xr-x 4 juhyun juhyun 4096 Nov  4 21:57 docs
++ cat /etc/os-release
+PRETTY_NAME="Ubuntu 26.04.1 LTS"
+NAME="Ubuntu"
+VERSION_ID="26.04"
+VERSION="26.04.1 LTS (Resolute Raccoon)"
+VERSION_CODENAME=resolute
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=resolute
+LOGO=ubuntu-logo
++ uname -r
+6.18.40.1-microsoft-standard-WSL2
++ printf 'Shell: %s\n' /bin/bash
+Shell: /bin/bash
++ bash --version
++ head -n 1
+GNU bash, version 5.3.9(1)-release (x86_64-pc-linux-gnu)
++ docker --version
+Docker version 29.9.2, build a82e528
++ git --version
+git version 2.53.0

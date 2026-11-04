@@ -1,0 +1,58 @@
+++ pwd
++ docker run -d --name codyssey-bind -p 8082:80 --mount type=bind,source=/home/juhyun/projects/ai-codyssey/app,target=/usr/share/nginx/html,readonly ai-codyssey-web:1.0
+11eac8f4d9d9e62314678198b708c6c804fbd98f042f4c5fde449b970c0c8670
++ docker inspect --format '{{json .Mounts}}' codyssey-bind
+[{"Type":"bind","Source":"/home/juhyun/projects/ai-codyssey/app","Destination":"/usr/share/nginx/html","Mode":"","RW":false,"Propagation":"rprivate"}]
++ curl -fsS --max-time 10 http://localhost:8082
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>개발 워크스테이션 실습</title>
+</head>
+<body>
+  <h1>AI Codyssey Docker 실습</h1>
+  <p>직접 빌드한 Nginx 이미지에서 제공하는 페이지입니다.</p>
+  <p>버전: 1</p>
+</body>
+</html>
++ sed -i 's/버전: 1/버전: 2/' app/index.html
++ cat app/index.html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>개발 워크스테이션 실습</title>
+</head>
+<body>
+  <h1>AI Codyssey Docker 실습</h1>
+  <p>직접 빌드한 Nginx 이미지에서 제공하는 페이지입니다.</p>
+  <p>버전: 2</p>
+</body>
+</html>
++ curl -fsS --max-time 10 http://localhost:8082
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>개발 워크스테이션 실습</title>
+</head>
+<body>
+  <h1>AI Codyssey Docker 실습</h1>
+  <p>직접 빌드한 Nginx 이미지에서 제공하는 페이지입니다.</p>
+  <p>버전: 2</p>
+</body>
+</html>
++ curl -fsS --max-time 10 http://localhost:8081
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>개발 워크스테이션 실습</title>
+</head>
+<body>
+  <h1>AI Codyssey Docker 실습</h1>
+  <p>직접 빌드한 Nginx 이미지에서 제공하는 페이지입니다.</p>
+  <p>버전: 1</p>
+</body>
+</html>

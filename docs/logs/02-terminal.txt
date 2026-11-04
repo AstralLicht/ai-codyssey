@@ -1,0 +1,36 @@
++ mkdir -p practice/terminal
++ cd practice/terminal
++ pwd
+/home/juhyun/projects/ai-codyssey/practice/terminal
++ ls --color=auto -la
+total 8
+drwxr-xr-x 2 juhyun juhyun 4096 Nov  4 22:00 .
+drwxr-xr-x 3 juhyun juhyun 4096 Nov  4 22:00 ..
++ touch empty.txt
++ printf 'Hello, terminal!\n'
++ cat original.txt
+Hello, terminal!
++ cp original.txt copied.txt
++ ls --color=auto -l
+total 8
+-rw-r--r-- 1 juhyun juhyun 17 Nov  4 22:00 copied.txt
+-rw-r--r-- 1 juhyun juhyun  0 Nov  4 22:00 empty.txt
+-rw-r--r-- 1 juhyun juhyun 17 Nov  4 22:00 original.txt
++ mv copied.txt renamed.txt
++ ls --color=auto -l
+total 8
+-rw-r--r-- 1 juhyun juhyun  0 Nov  4 22:00 empty.txt
+-rw-r--r-- 1 juhyun juhyun 17 Nov  4 22:00 original.txt
+-rw-r--r-- 1 juhyun juhyun 17 Nov  4 22:00 renamed.txt
++ rm renamed.txt
++ ls --color=auto -la
+total 12
+drwxr-xr-x 2 juhyun juhyun 4096 Nov  4 22:00 .
+drwxr-xr-x 3 juhyun juhyun 4096 Nov  4 22:00 ..
+-rw-r--r-- 1 juhyun juhyun    0 Nov  4 22:00 empty.txt
+-rw-r--r-- 1 juhyun juhyun   17 Nov  4 22:00 original.txt
++ mkdir temporary-dir
++ rmdir temporary-dir
++ cd ..
++ pwd
+/home/juhyun/projects/ai-codyssey/practice

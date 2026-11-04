@@ -1,0 +1,23 @@
++ git config --list
++ sed -E 's/^([^=]*(name|email|token|password|secret|credential|extraheader)[^=]*)=.*/\1=[REDACTED]/I'
+user.name=[REDACTED]
+user.email=[REDACTED]
+init.defaultbranch=main
+credential.https://github.com.helper=[REDACTED]
+credential.https://github.com.helper=[REDACTED]
+credential.https://gist.github.com.helper=[REDACTED]
+credential.https://gist.github.com.helper=[REDACTED]
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+remote.origin.url=https://github.com/AstralLicht/ai-codyssey.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.main.remote=origin
+branch.main.merge=refs/heads/main
+branch.main.vscode-merge-base=origin/main
++ git remote -v
+origin	https://github.com/AstralLicht/ai-codyssey.git (fetch)
+origin	https://github.com/AstralLicht/ai-codyssey.git (push)
++ git branch --show-current
+main

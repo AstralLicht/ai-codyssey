@@ -1,0 +1,26 @@
++ docker volume create codyssey-data
+codyssey-data
++ docker run -d --name codyssey-volume-before --mount type=volume,source=codyssey-data,target=/data ubuntu:24.04 sleep infinity
+4a40603ea94936f8ab8f8bdfbafe1a70d822f7c5610b814940e8136b66e7bcb6
++ docker exec codyssey-volume-before bash -lc 'printf "Volume persistence test\n" > /data/message.txt; cat /data/message.txt'
+Volume persistence test
++ docker stop codyssey-volume-before
+codyssey-volume-before
++ docker rm codyssey-volume-before
+codyssey-volume-before
++ docker volume inspect codyssey-data
+[
+    {
+        "CreatedAt": "2026-11-04T13:25:58Z",
+        "Driver": "local",
+        "Labels": null,
+        "Mountpoint": "/var/lib/docker/volumes/codyssey-data/_data",
+        "Name": "codyssey-data",
+        "Options": null,
+        "Scope": "local"
+    }
+]
++ docker run -d --name codyssey-volume-after --mount type=volume,source=codyssey-data,target=/data ubuntu:24.04 sleep infinity
+4155e74caf3e7b15bc1aa350001741f7886b99fb8785e0516e588c84c7a79907
++ docker exec codyssey-volume-after cat /data/message.txt
+Volume persistence test

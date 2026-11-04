@@ -1,0 +1,71 @@
++ docker run --rm hello-world
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
++ docker run -d --name codyssey-ubuntu ubuntu:24.04 sleep infinity
+Unable to find image 'ubuntu:24.04' locally
+24.04: Pulling from library/ubuntu
+7a48b8f0e5c7: Pulling fs layer
+98144013299c: Download complete
+7a48b8f0e5c7: Download complete
+7a48b8f0e5c7: Pull complete
+Digest: sha256:fe81560990fae86dc4743202b2cb4d3df98d0bcf949173cecef15ce1127ef852
+Status: Downloaded newer image for ubuntu:24.04
+e8d4b7dbd93b6a234502683239bf6be675151d41ca55cd9c4e9274821b151cc0
++ docker exec codyssey-ubuntu bash -lc 'echo "Hello from Ubuntu container"; pwd; ls; cat /etc/os-release'
+Hello from Ubuntu container
+/
+bin
+boot
+dev
+etc
+home
+lib
+lib64
+media
+mnt
+opt
+proc
+root
+run
+sbin
+srv
+sys
+tmp
+usr
+var
+PRETTY_NAME="Ubuntu 24.04.5 LTS"
+NAME="Ubuntu"
+VERSION_ID="24.04"
+VERSION="24.04.5 LTS (Noble Numbat)"
+VERSION_CODENAME=noble
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=noble
+LOGO=ubuntu-logo
++ docker ps --filter name=codyssey-ubuntu
+CONTAINER ID   IMAGE          COMMAND            CREATED                  STATUS                  PORTS     NAMES
+e8d4b7dbd93b   ubuntu:24.04   "sleep infinity"   Less than a second ago   Up Less than a second             codyssey-ubuntu

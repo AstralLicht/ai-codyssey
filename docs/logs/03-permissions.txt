@@ -1,0 +1,15 @@
++ mkdir -p practice/permissions/sample-dir
++ printf 'Permission practice\n'
++ stat -c '%a %A %n' practice/permissions/sample.txt practice/permissions/sample-dir
+644 -rw-r--r-- practice/permissions/sample.txt
+755 drwxr-xr-x practice/permissions/sample-dir
++ chmod 600 practice/permissions/sample.txt
++ chmod 700 practice/permissions/sample-dir
++ stat -c '%a %A %n' practice/permissions/sample.txt practice/permissions/sample-dir
+600 -rw------- practice/permissions/sample.txt
+700 drwx------ practice/permissions/sample-dir
++ chmod 644 practice/permissions/sample.txt
++ chmod 755 practice/permissions/sample-dir
++ stat -c '%a %A %n' practice/permissions/sample.txt practice/permissions/sample-dir
+644 -rw-r--r-- practice/permissions/sample.txt
+755 drwxr-xr-x practice/permissions/sample-dir
