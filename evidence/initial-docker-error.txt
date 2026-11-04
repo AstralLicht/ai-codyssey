@@ -1,0 +1,32 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20261104181533
+Username: DESKTOP-KPJPUJO\Sirius
+RunAs User: DESKTOP-KPJPUJO\Sirius
+Configuration Name: 
+Machine: DESKTOP-KPJPUJO (Microsoft Windows NT 10.0.22631.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/verify.ps1
+Process ID: 20068
+PSVersion: 5.1.22621.2506
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.22621.2506
+BuildVersion: 10.0.22621.2506
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is evidence/docker-verification.txt
+$ docker --version
+Docker version 29.9.2, build a82e528
+$ docker info --format Server={{.ServerVersion}} OS={{.OperatingSystem}}
+Server=29.9.2 OS=Docker Desktop
+$ docker pull hello-world
+Using default tag: latest
+>> TerminatingError(docker.exe): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: error getting credentials - err: exec: "docker-credential-desktop": executable file not found in %PATH%, out: ``"
+>> TerminatingError(docker.exe): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: error getting credentials - err: exec: "docker-credential-desktop": executable file not found in %PATH%, out: ``"
+Web container: codyssey-20261104181533-web; preserved volume: codyssey-20261104181533-data
+**********************
+Windows PowerShell transcript end
+End time: 20261104181533
+**********************

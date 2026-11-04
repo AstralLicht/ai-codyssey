@@ -1,0 +1,8 @@
+services:
+  web:
+    build: .
+    ports:
+      - "127.0.0.1:${HOST_PORT:-18080}:80"
+    environment:
+      APP_ENV: training
+    restart: unless-stopped

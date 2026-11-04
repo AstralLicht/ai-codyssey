@@ -1,0 +1,11 @@
+core.repositoryformatversion=0
+core.filemode=false
+core.bare=false
+core.logallrefupdates=true
+core.symlinks=false
+core.ignorecase=true
+user.name=juhyun
+user.email=siriusstar1861@gmail.com
+init.defaultbranch=main
+remote.origin.url=https://github.com/AstralLicht/ai-codyssey.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*

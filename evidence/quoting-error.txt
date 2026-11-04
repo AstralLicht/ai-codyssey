@@ -1,0 +1,94 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20261104181554
+Username: DESKTOP-KPJPUJO\Sirius
+RunAs User: DESKTOP-KPJPUJO\Sirius
+Configuration Name: 
+Machine: DESKTOP-KPJPUJO (Microsoft Windows NT 10.0.22631.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/verify.ps1
+Process ID: 25280
+PSVersion: 5.1.22621.2506
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.22621.2506
+BuildVersion: 10.0.22621.2506
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is evidence/docker-verification.txt
+$ docker --version
+Docker version 29.9.2, build a82e528
+$ docker info --format Server={{.ServerVersion}} OS={{.OperatingSystem}}
+Server=29.9.2 OS=Docker Desktop
+$ docker pull hello-world
+Using default tag: latest
+latest: Pulling from library/hello-world
+Digest: sha256:c567b231f65614688711a75f31518a064258a51d442117a3e771a3a8fdba78ef
+Status: Image is up to date for hello-world:latest
+docker.io/library/hello-world:latest
+$ docker run --rm hello-world
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+$ docker pull ubuntu:24.04
+24.04: Pulling from library/ubuntu
+7a48b8f0e5c7: Pulling fs layer
+98144013299c: Download complete
+7a48b8f0e5c7: Download complete
+7a48b8f0e5c7: Pull complete
+Digest: sha256:fe81560990fae86dc4743202b2cb4d3df98d0bcf949173cecef15ce1127ef852
+Status: Downloaded newer image for ubuntu:24.04
+docker.io/library/ubuntu:24.04
+$ docker run --rm ubuntu:24.04 bash -lc set -eux; pwd; mkdir -p /tmp/practice; cd /tmp/practice; touch empty.txt .hidden; echo terminal-ok > original.txt; cp original.txt copy.txt; mv copy.txt renamed.txt; ls -la; cat renamed.txt; rm renamed.txt; mkdir permissions; touch permissions/file; chmod 600 permissions/file; chmod 700 permissions; stat -c "%a %n" permissions permissions/file; chmod 644 permissions/file; chmod 755 permissions; stat -c "%a %n" permissions permissions/file; ls -la
++ pwd
++ mkdir -p /tmp/practice
+/
++ cd /tmp/practice
++ touch empty.txt .hidden
++ echo terminal-ok
++ cp original.txt copy.txt
++ mv copy.txt renamed.txt
++ ls -la
+total 16
+drwxr-xr-x 2 root root 4096 Nov  4 09:16 .
+drwxrwxrwt 1 root root 4096 Nov  4 09:16 ..
+-rw-r--r-- 1 root root    0 Nov  4 09:16 .hidden
+-rw-r--r-- 1 root root    0 Nov  4 09:16 empty.txt
+-rw-r--r-- 1 root root   12 Nov  4 09:16 original.txt
+-rw-r--r-- 1 root root   12 Nov  4 09:16 renamed.txt
+terminal-ok
++ cat renamed.txt
++ rm renamed.txt
++ mkdir permissions
++ touch permissions/file
++ chmod 600 permissions/file
++ chmod 700 permissions
++ stat -c %a
+stat: missing operand
+Try 'stat --help' for more information.
+PS>TerminatingError(): "docker failed: run --rm ubuntu:24.04 bash -lc set -eux; pwd; mkdir -p /tmp/practice; cd /tmp/practice; touch empty.txt .hidden; echo terminal-ok > original.txt; cp original.txt copy.txt; mv copy.txt renamed.txt; ls -la; cat renamed.txt; rm renamed.txt; mkdir permissions; touch permissions/file; chmod 600 permissions/file; chmod 700 permissions; stat -c "%a %n" permissions permissions/file; chmod 644 permissions/file; chmod 755 permissions; stat -c "%a %n" permissions permissions/file; ls -la"
+Web container: codyssey-20261104181554-web; preserved volume: codyssey-20261104181554-data
+**********************
+Windows PowerShell transcript end
+End time: 20261104181602
+**********************
