@@ -4,6 +4,7 @@ from datetime import date
 
 FILE = "attendance.csv"
 
+
 def load():
     """CSV 파일에서 출석 데이터를 읽어온다."""
     if not os.path.exists(FILE):
@@ -12,12 +13,14 @@ def load():
         reader = csv.DictReader(f)
         return list(reader)
 
+
 def save(records):
     """출석 데이터를 CSV 파일에 저장한다."""
     with open(FILE, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=["date", "name"])
         writer.writeheader()
         writer.writerows(records)
+
 
 def add(records):
     """날짜와 이름을 입력받아 출석을 추가한다."""
@@ -36,6 +39,7 @@ def add(records):
     print(f"✅  {date_input} / {name} 출석 완료!")
     return records
 
+
 def list_all(records):
     """저장된 출석 목록을 출력한다."""
     if not records:
@@ -47,6 +51,7 @@ def list_all(records):
     for r in records:
         print(f"{r['date']:<16}{r['name']}")
     print(f"\n총 {len(records)}건")
+
 
 def main():
     records = load()
@@ -67,6 +72,7 @@ def main():
             break
         else:
             print("⚠️  1, 2, 3 중에서 선택해주세요.")
+
 
 if __name__ == "__main__":
     main()
