@@ -34,8 +34,7 @@ Docker 실행 파일은 `C:\Program Files\Docker\Docker\resources\bin\docker.exe
 - [x] 볼륨 생성 및 컨테이너 삭제 후 데이터 유지 검증
 - [ ] 주소창과 응답 화면이 함께 보이는 브라우저 캡처
 - [x] 실제 작성자 정보와 기본 브랜치 설정 및 설정 로그
-- [x] GitHub 저장소 main 업로드 및 원격 추적 설정
-- [ ] VS Code 로그인·연동 화면 증거
+- [ ] GitHub 저장소 업로드 및 VS Code 로그인·연동 증거
 
 ## 4. 파일과 증거 안내
 
@@ -46,7 +45,6 @@ Docker 실행 파일은 `C:\Program Files\Docker\Docker\resources\bin\docker.exe
 - [Docker 인증 도우미 PATH 오류 원본](evidence/initial-docker-error.txt)
 - [PowerShell 인자 전달 오류 원본](evidence/quoting-error.txt)
 - [실제 Git 로컬 설정](evidence/git-config.txt)
-- [Git 커밋·푸시 결과](evidence/git-publish.txt)
 - [선택 과제용 단일 서비스 Compose 설정](compose.yaml) - 설정 작성 완료, Compose 실행은 미검증
 
 전체 로그에는 Windows 호스트 경로가 포함된다. 다른 PC에서는 스크립트가 저장소 위치를 기준으로 경로를 계산하므로 같은 사용자명이나 절대 경로가 필요하지 않다. 로그의 시각 중 컨테이너 로그는 UTC, 호스트 실행 시각은 한국 시간이다.
@@ -255,7 +253,7 @@ docker compose down
 
 Git은 로컬 변경 이력을 관리하는 도구이며 GitHub는 원격 저장소와 협업 기능을 제공한다. 작성자는 `juhyun`, 이메일은 사용자가 제공한 값으로 로컬 설정했다. 원격 저장소는 https://github.com/AstralLicht/ai-codyssey.git 이다. 원격 main의 기존 커밋 이력을 이어받았으며 기존 `attend.py`도 그대로 보존했다. [Git 설정 결과](evidence/git-config.txt)에서 실제 설정을 확인할 수 있다.
 
-아래 설정·커밋·푸시 절차를 수행했다. 다른 PC에서 재현할 때 이름·이메일·원격 주소를 본인 값으로 바꾼다. 이미 origin이 있으면 `git remote add` 대신 `git remote set-url origin`을 사용한다.
+아래 명령 중 config, 브랜치 이름 변경, 원격 설정은 수행했다. commit/push 결과는 업로드 후 추가한다. 다른 PC에서 재현할 때 이름·이메일·원격 주소를 본인 값으로 바꾼다.
 
 ```powershell
 git config --local user.name "실제 작성자 이름"
@@ -268,18 +266,6 @@ git commit -m "Complete developer workspace mission"
 git remote add origin https://github.com/OWNER/REPOSITORY.git
 git push -u origin main
 ```
-
-실제 최초 업로드 결과:
-
-```text
-[main ebb44ad] Complete Docker workspace mission with verified execution logs
-12 files changed, 812 insertions(+)
-To https://github.com/AstralLicht/ai-codyssey.git
-   10ec078..ebb44ad  main -> main
-branch 'main' set up to track 'origin/main'.
-```
-
-이후 README의 업로드 상태와 증거 문서를 추가 커밋했다. GitHub 업로드 성공은 Git 인증과 원격 연결 증거이며 VS Code 자체 로그인 증거와 구별한다.
 
 VS Code에서 GitHub 로그인을 완료하고 이 폴더의 원격 저장소 연결을 확인한 화면을 첨부한다. 인증 화면의 코드나 토큰은 기록하지 않는다. `git config --list` 전체에는 인증 관련 값이 있을 수 있으므로 공개 로그에는 민감 항목을 제거하고 필요한 설정만 남긴다.
 
