@@ -1,5 +1,0 @@
-.env
-*.key
-*.pem
-.docker/
-tmp/
